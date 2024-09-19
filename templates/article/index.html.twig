@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Article List{% endblock %}
+
+{% block body %}
+<h1>Article List</h1>
+
+<div class="articles">
+    {% for article in articles %}
+        <div class="article">
+            <h2 class='article-title'>{{article.title}}</h2>
+            <p class='article-date'>{{article.createdAt}}</p>
+            <div class="article-tags">
+                {% for tag in article.tags %}
+                <span class='article-tag'>
+                    {{tag.tag.name}}
+                </span>
+                {% endfor %}
+            </div>
+            <p class='article-text'>{{article.text}}</p>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
